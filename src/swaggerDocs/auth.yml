@@ -1,0 +1,245 @@
+paths:
+  /save-message:
+    post:
+      tags: # Tag property
+        - SAVE MESSAGE # Value of the tag
+      summary: FOR GETTING DETAILS OF THE MESSAGE SENT.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+        - in: body # request body
+          name: save-message # name of request, can be any name
+          description: It enables users to save message
+          required: true # can also be true depending on user preference
+          schema: # Schema definition
+            $ref: "#/definitions/userMessage"
+      responses: # server responses
+        201:
+          description: should return users account registration successful
+
+
+
+
+
+
+  /get-all-messages:
+    get:
+      tags:
+        - GET ALL MESSAGES # Value of the tag
+      summary: GET ALL MESSAGES.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+
+        - in: query
+          name: page
+          type: number
+          default: 1
+          required: true
+      responses:
+        200:
+          description: should return all messages
+
+
+
+
+  /get-all-message-by-authId:
+    get:
+      tags:
+        - GET A USER MESSAGE BY ID # Value of the tag
+      summary: GET A USER.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+        - in: query
+          name: page
+          type: number
+          default: 1
+          required: true
+
+        - in: query
+          name: authId
+          type: string
+          default: a5970193-826b-4163-ad34-c2edc2f2187a
+          required: true
+      responses:
+        200:
+          description: should return a church member
+
+
+
+  /get-message-by-msg-id:
+    get:
+      tags:
+        - GET A MESSAGE BY ID # Value of the tag
+      summary: GET A MESSAGE.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+
+        - in: query
+          name: msgId
+          type: string
+          default: a5970193-826b-4163-ad34-c2edc2f2187a
+          required: true
+      responses:
+        200:
+          description: should return a message
+     
+
+  
+
+
+
+
+  /delete-message:
+    delete:
+      tags:
+        - DELETE A MESSAGE BY ID # Value of the tag
+      summary: DELETE USER ACCOUNT.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+        - in: body # request body
+          name:   delete-message # name of request, can be any name
+          description: It enables users message to be deleted
+          required: true # can also be true depending on user preference
+          schema: # Schema definition
+            $ref: "#/definitions/deleteAccount"
+
+
+      responses:
+        200:
+          description: should return message deleted successfully
+
+
+  /send-bulk-message:
+    post:
+      tags:
+        - SEND BULK MESSAGE # Value of the tag
+      summary: SEND BULK MESSAGE.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+        - in: body # request body
+          name:   send-bulk-message # name of request, can be any name
+          description: It enables users send messages 
+          required: true # can also be true depending on user preference
+          schema: # Schema definition
+            $ref: "#/definitions/sendMessages"
+
+
+      responses:
+        200:
+          description: should return message sent successfully
+
+
+ 
+
+
+
+definitions: # Schema definition for request body
+  userMessage:
+    type: object
+    properties:
+      email:
+          type: string
+          default: miriam@gmail.com
+     
+     
+      message:
+          type: string
+          default: London
+
+      recieversNumber:
+          type: array
+          default: ["Poland","Nice"]
+
+      senderId:
+          type: string
+          default: 98398 
+
+      count:
+          type: number
+          default: 45  
+
+                 
+
+      phoneNumber:
+          type: string
+          default: +2348037335555
+      
+      fullName:
+          type: string
+          default: Mimi Austin
+
+
+
+  sendMessages:
+    type: object
+    properties:
+      authId:
+          type: string
+          default: 6c02428b-2fc4-4cc2-b923-c045401f84bf
+     
+     
+      from:
+          type: string
+          default: London
+
+      phoneNumber:
+          type: string
+          default: +2348037335555 
+
+      message:
+          type: string
+          default: "Hello how are you"  
+
+                 
+
+     
+
+
+
+  deleteAccount:
+    type: object
+    properties:
+      authId:
+          type: string
+          default: 6c02428b-2fc4-4cc2-b923-c045401f84bf
+
+      msgId:
+          type: string
+          default: 6c02428b-2fc4-4cc2-b923-c045401f84bf     
+           
+
