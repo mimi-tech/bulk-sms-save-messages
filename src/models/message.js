@@ -9,8 +9,10 @@ module.exports = (db) => {
       fullName: { type: DataTypes.STRING, allowNull: false},
       message: { type: DataTypes.STRING, allowNull: false},
       recieversNumber: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: false},
+      failedContacts: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true},
       senderId: { type: DataTypes.STRING, allowNull: false},
       dateSent: { type: DataTypes.STRING, allowNull: true},
+      title: { type: DataTypes.STRING, allowNull: true},
       count: { type: DataTypes.INTEGER, defaultValue:0},
     },
     {
@@ -27,7 +29,9 @@ module.exports = (db) => {
     "fullname",
     "recieversNumber",
     "senderId",
-    "count"
+    "count",
+    "failedContacts",
+    "title"
   ];
     cols = admin ? [...cols, "createdAt"] : cols;
     const data = {};

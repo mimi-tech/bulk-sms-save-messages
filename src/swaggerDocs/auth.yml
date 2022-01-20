@@ -181,23 +181,27 @@ definitions: # Schema definition for request body
           type: string
           default: London
 
-      recieversNumber:
+      receiversNumber:
           type: array
           default: ["Poland","Nice"]
+
+      failedContacts:
+          type: array
+          default: ["+7658786875","+76756757698"]    
 
       senderId:
           type: string
           default: 98398 
 
+      title:
+          type: string
+          default: CBIU 
+
       count:
           type: number
           default: 45  
 
-                 
-
-      phoneNumber:
-          type: string
-          default: +2348037335555
+     
       
       fullName:
           type: string
