@@ -6,7 +6,9 @@ module.exports = {
     email: Joi.string().email().required(),
     fullName: Joi.string().required(),
     message: Joi.string().required(),
-    recieversNumber: Joi.array().required(),
+    receiversNumber: Joi.array().required(),
+    failedContacts: Joi.array().required(),
+    title: Joi.string().required(),
     senderId: Joi.string().required(),
     count: Joi.number().required(),
    

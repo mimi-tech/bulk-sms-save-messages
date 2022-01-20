@@ -54,8 +54,10 @@ const welcomeText = async () => {
              recieversNumber,
              senderId,
              count,
-            
+             failedContacts,
              fullName,
+             title,
+             
              
             
             
@@ -70,10 +72,11 @@ const welcomeText = async () => {
             msgId: uuid(),
             senderEmail: email,
             message:message,
-            recieversNumber: recieversNumber,
+            receiversNumber: recieversNumber,
             senderId: senderId,
             count:count,
-           
+            failedContacts:failedContacts,
+            title: title,
             fullName: fullName,
             dateSent:new Date().toLocaleString()
               })
@@ -86,7 +89,7 @@ const welcomeText = async () => {
 
         return {
             status: true,
-            message: "Message sent created successfully",
+            message: "Message saved successfully",
             data: newPersonalAccount,
         };
 
