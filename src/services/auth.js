@@ -51,12 +51,13 @@ const welcomeText = async () => {
         const { 
              email,
              message,
-             recieversNumber,
+             receiversNumber,
              senderId,
              count,
              failedContacts,
              fullName,
              title,
+             amount,
              
              
             
@@ -72,12 +73,13 @@ const welcomeText = async () => {
             msgId: uuid(),
             senderEmail: email,
             message:message,
-            receiversNumber: recieversNumber,
+            recieversNumber: receiversNumber,
             senderId: senderId,
             count:count,
             failedContacts:failedContacts,
             title: title,
             fullName: fullName,
+            amount:amount,
             dateSent:new Date().toLocaleString()
               })
 

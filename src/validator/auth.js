@@ -11,6 +11,7 @@ module.exports = {
     title: Joi.string().required(),
     senderId: Joi.string().required(),
     count: Joi.number().required(),
+    amount: Joi.number().required(),
    
   },
 
