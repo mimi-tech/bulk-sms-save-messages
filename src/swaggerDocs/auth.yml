@@ -199,7 +199,11 @@ definitions: # Schema definition for request body
 
       count:
           type: number
-          default: 45  
+          default: 45 
+          
+      amount:
+          type: number
+          default: 12  
 
      
       
