@@ -17,6 +17,8 @@ routes.get("/get-message-by-msg-id",validate(validator.getAMessagesByMsgId), aut
 
 routes.delete("/delete-message",validate(validator.deleteMessage), auth.deleteMessage);
 
+routes.delete("/delete-all-messages",validate(validator.deleteAllMessage), auth.deleteAllMessage);
+
 routes.post("/send-bulk-message",validate(validator.sendBulkMessage), auth.sendBulkMessage);
 
 module.exports = routes; 

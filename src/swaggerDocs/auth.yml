@@ -138,6 +138,36 @@ paths:
           description: should return message deleted successfully
 
 
+
+  /delete-all-messages:
+    delete:
+      tags:
+        - DELETE All MESSAGE BY SENDERID # Value of the tag
+      summary: DELETE USER MWSSAGES.
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: authorization
+          description: access token
+          required: true
+          default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfZW1haWwiOiJtaXJpYW1AZ21haWwuY29tIiwiaWQiOiI0NmQ5ZWVkYy1lY2ZlLTRhMGUtODNiYi0wMGJlYzVkMmM4NjUiLCJpYXQiOjE2NDEzMTY2MzgsImV4cCI6MTY0MTMxODQzOH0.Jw52ePK9Rw1Jrvg5bA-1E_a9CSk1lILeNo6FTQZ7mho
+        - in: body # request body
+          name:   delete-all-message # name of request, can be any name
+          description: It enables users messages to be deleted
+          required: true # can also be true depending on user preference
+          schema: # Schema definition
+            $ref: "#/definitions/deleteAllMessages"
+
+
+      responses:
+        200:
+          description: should return message deleted successfully
+
+
+
+
+
   /send-bulk-message:
     post:
       tags:
@@ -250,4 +280,12 @@ definitions: # Schema definition for request body
           type: string
           default: 6c02428b-2fc4-4cc2-b923-c045401f84bf     
            
+  deleteAllMessages:
+    type: object
+    properties:
+      authId:
+          type: string
+          default: 6c02428b-2fc4-4cc2-b923-c045401f84bf
+
+      
 

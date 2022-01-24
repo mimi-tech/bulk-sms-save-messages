@@ -6,7 +6,7 @@ const { auth } = require("../services");
 //creates a list of non restricted endpoints
 const nonRestrictedEndPoints = [
 "/",
-"/save-message",
+"/delete-all-messages",
 ];
 
 //creates list of authorized endpoints
@@ -17,6 +17,7 @@ const restrictedEndPoints = [
   "/get-message-by-msg-id",
   "/delete-message",
   "/send-bulk-message",
+  "/save-message",
   
 ]
 
