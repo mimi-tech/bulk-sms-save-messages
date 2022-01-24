@@ -2,7 +2,7 @@
 const { v4: uuid } = require("uuid");
 
 const {
-    Op: { or },
+    Op: { or,and },
 
 } = require("sequelize");
 
@@ -270,10 +270,10 @@ const getAMessagesByMsgId = async (params) => {
 
 
 
-        //go ahead and delete the account
+        //go ahead and delete the message
         await Messages.destroy({
             where: {
-                id: authId
+                msgId: msgId,
             }
         })
 
@@ -289,6 +289,57 @@ const getAMessagesByMsgId = async (params) => {
         };
     }
 }
+
+
+
+/**
+ * for deleting a message by message id and users ID
+ * @param {Object} params  user id {authId} params needed.
+ * @returns {Promise<Object>} Contains status, and returns data and message 
+ */
+
+ const deleteAllMessage = async (params) => {
+    try {
+        const { authId } = params
+
+        //check if the user is already existing
+        const user = await Messages.findOne({
+            where: {
+               
+                     senderId: authId
+                    
+            },
+        })
+
+        if (!user) {
+            return {
+                status: false,
+                message: "You have no saved messages"
+            };
+        }
+
+
+
+        //go ahead and delete the message
+        await Messages.destroy({
+            where: {
+                senderId: authId,
+            }
+        })
+
+        return {
+            status: true,
+            message: "messages deleted successfully"
+        };
+    } catch (e) {
+        console.log(e);
+        return {
+            status: false,
+            message: constants.SERVER_ERROR("DELETING ALL Message"),
+        };
+    }
+}
+
 
 
 
@@ -392,6 +443,6 @@ module.exports = {
     getAllMessages,
     deleteMessage,
     sendBulkMessage,
-    getAllMessagesForAUser
-   
+    getAllMessagesForAUser,
+    deleteAllMessage
 }

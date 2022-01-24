@@ -38,6 +38,10 @@ module.exports = {
     authId: Joi.string().uuid().required(),
    
   },
+  deleteAllMessage: {
+    authId: Joi.string().uuid().required(),
+   
+  },
   
   sendBulkMessage: {
     authId: Joi.string().uuid().required(),

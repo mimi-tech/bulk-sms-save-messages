@@ -39,6 +39,11 @@ const getAMessagesByMsgId = async (req, res) => {
     const data = await auth.getAMessagesByMsgId(req.form);
     return response(res, data);
   };
+
+  const deleteAllMessage = async (req, res) => {
+    const data = await auth.deleteAllMessage(req.form);
+    return response(res, data);
+  };
   
 
 
@@ -57,5 +62,6 @@ const getAMessagesByMsgId = async (req, res) => {
     sendBulkMessage,
     getAMessagesByMsgId,
     sendBulkMessage,
+    deleteAllMessage
     
 }
